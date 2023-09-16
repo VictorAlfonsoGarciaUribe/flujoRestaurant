@@ -163,13 +163,42 @@ controller.list = (req, res) => {
                     dataPorPreparar: porPreparar,
                     dataPreparando: preparando
                 });
+
+                // Actualiza el estado del pedido
+                if (req.body.status === "preparando") {
+                    var id = req.params.id;
+                    conn.query('UPDATE pedido SET estado = ? WHERE id = ?', [id, "preparando"], (err, result) => {
+                        if (err) {
+                            res.json(err);
+                        }
+                    });
+                }
             });
         });
     });
 };
 
-
-
+//ACTUALIZAR EL ESTADO DEL PEDIOD EN CHEF
+controller.updateStatus = (req, res) => {
+    // Obtener el ID del pedido
+    const id = req.params.id;
+  
+    // Obtener el nuevo estado del pedido
+   // const newStatus = req.body.status;
+  
+    // Actualizar el estado del pedido en la base de datos
+    req.getConnection((err, conn) => {
+      conn.query('UPDATE pedido SET estado = ? WHERE id = ?', ["preparando", id], (err, result) => {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json({
+            message: 'El estado del pedido se ha actualizado correctamente.'
+          });
+        }
+      });
+    });
+  };
 
 //chef
 
