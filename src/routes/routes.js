@@ -23,6 +23,8 @@ router.get('/chef', controller.chef);
 router.get('/listm', controller.listm);
 router.get('/mesero', controller.mesero);
 
+router.post('/preparando/:id', controller.updateStatus);
+
 
 
 
