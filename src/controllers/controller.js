@@ -200,8 +200,30 @@ controller.updateStatus = (req, res) => {
     });
   };
 
-//chef
+  controller.updateStatusPorentregar = (req, res) => {
+    // Obtener el ID del pedido
+    const id = req.params.id;
+  
+    // Obtener el nuevo estado del pedido
+   // const newStatus = req.body.status;
+  
+    // Actualizar el estado del pedido en la base de datos
+    req.getConnection((err, conn) => {
+      conn.query('UPDATE pedido SET estado = ? WHERE id = ?', ["por entregar", id], (err, result) => {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json({
+            message: 'El estado del pedido se ha actualizado correctamente.'
+          });
+        }
+      });
+    });
+  };
 
+//chef fin
+
+//Mesero
 controller.mesero = (req,res)=>{
     //requerimos la conexion, podemos obtener un error err o la la conexion conn
     req.getConnection((err ,conn) => {
@@ -235,6 +257,26 @@ controller.listm = (req, res) => {
         });
     });
 };
+controller.updateStatusentregado = (req, res) => {
+    // Obtener el ID del pedido
+    const id = req.params.id;
+  
+    // Obtener el nuevo estado del pedido
+   // const newStatus = req.body.status;
+  
+    // Actualizar el estado del pedido en la base de datos
+    req.getConnection((err, conn) => {
+      conn.query('UPDATE pedido SET estado = ? WHERE id = ?', ["entregado", id], (err, result) => {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json({
+            message: 'El estado del pedido se ha actualizado correctamente.'
+          });
+        }
+      });
+    });
+  };
 
 
 // CONTROLLER BOTON DE MIERDA 1

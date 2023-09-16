@@ -24,7 +24,8 @@ router.get('/listm', controller.listm);
 router.get('/mesero', controller.mesero);
 
 router.post('/preparando/:id', controller.updateStatus);
-
+router.post('/porentregar/:id', controller.updateStatusPorentregar);
+router.post('/entregado/:id', controller.updateStatusentregado);
 
 
 
