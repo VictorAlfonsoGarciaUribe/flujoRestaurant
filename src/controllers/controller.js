@@ -192,9 +192,7 @@ controller.updateStatus = (req, res) => {
         if (err) {
           res.json(err);
         } else {
-          res.json({
-            message: 'El estado del pedido se ha actualizado correctamente.'
-          });
+            res.redirect('/list');
         }
       });
     });
@@ -213,9 +211,7 @@ controller.updateStatus = (req, res) => {
         if (err) {
           res.json(err);
         } else {
-          res.json({
-            message: 'El estado del pedido se ha actualizado correctamente.'
-          });
+            res.redirect('/list');
         }
       });
     });
@@ -270,9 +266,7 @@ controller.updateStatusentregado = (req, res) => {
         if (err) {
           res.json(err);
         } else {
-          res.json({
-            message: 'El estado del pedido se ha actualizado correctamente.'
-          });
+            res.redirect('/listm');
         }
       });
     });

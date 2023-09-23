@@ -20,6 +20,7 @@
                                 <th>N</th>
                                 <th>Platillo</th>
                                 <th>Cantidad</th>
+                                <th>Observaciones</th>
                                 <th>Cliente</th>
                                 <th>Acción</th>
                             </tr>
@@ -30,13 +31,16 @@
                                 <% for (var i=0; i < dataPorPreparar.length; i++) { %>
                                     <tr>
                                         <td>
-                                            <%= (i+1)%>
+                                            <%= dataPorPreparar[i].id %>
                                         </td>
                                         <td>
                                             <%= dataPorPreparar[i].platillo %>
                                         </td>
                                         <td>
                                             <%= dataPorPreparar[i].cantidad %>
+                                        </td>
+                                        <td>
+                                            <%= dataPorPreparar[i].observaciones %>
                                         </td>
                                         <td>
                                             <%= dataPorPreparar[i].cliente %>
@@ -79,7 +83,7 @@
                                 <% for (var i=0; i < dataPreparando.length; i++) { %>
                                     <tr>
                                         <td>
-                                            <%= (i+1)%>
+                                            <%= dataPreparando[i].id %>
                                         </td>
                                         <td>
                                             <%= dataPreparando[i].platillo %>
